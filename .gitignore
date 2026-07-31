@@ -1,0 +1,22 @@
+# Virtual Environment
+env/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Chroma Database
+chroma_db/
+
+# Python cache
+.pytest_cache/

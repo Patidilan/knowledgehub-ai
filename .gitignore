@@ -6,17 +6,46 @@ venv/
 # Python
 __pycache__/
 *.py[cod]
-*.pyo
+*.egg-info/
 
-# Environment variables
+# Environment
 .env
 
 # IDE
 .vscode/
 .idea/
 
-# Chroma Database
+# Database
+*.db
+
+# ChromaDB
 chroma_db/
 
-# Python cache
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Private documents
+uploads/
+
+
+# Test / cache
 .pytest_cache/
+.mypy_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Build
+build/
+dist/
+
+# macOS/Linux
+*.swp
+
+# Local configuration
+.env.local

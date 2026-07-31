@@ -1,13 +1,16 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI(
     title="KnowledgeHub AI",
     version="0.1.0"
 )
 
-@app.get("/")
-def home():
-    return {
-        "status": "OK",
-        "message": "Welcome to KnowledgeHub AI 🚀"
-    }
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+templates = Jinja2Templates(directory="app/templates")
+
+from app.api.upload import router as upload_router
+
+app.include_router(upload_router)

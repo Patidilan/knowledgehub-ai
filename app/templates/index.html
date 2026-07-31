@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KnowledgeHub AI</title>
+</head>
+
+<body>
+
+<h1>KnowledgeHub AI</h1>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+
+    <input type="file" name="file">
+
+    <button type="submit">
+
+        Upload
+
+    </button>
+
+</form>
+
+<hr>
+
+<h2>Uploaded Documents</h2>
+
+<ul>
+
+{% for file in files %}
+
+<li>{{ file.name }}</li>
+
+{% endfor %}
+
+</ul>
+
+</body>
+</html>

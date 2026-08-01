@@ -49,3 +49,9 @@ dist/
 
 # Local configuration
 .env.local
+
+# Processed documents
+data/processed/
+
+# AI Models
+models/

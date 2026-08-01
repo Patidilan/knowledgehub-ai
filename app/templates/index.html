@@ -6,33 +6,41 @@
 
 <body>
 
-<h1>KnowledgeHub AI</h1>
+    <h1>KnowledgeHub AI</h1>
 
-<form action="/upload" method="post" enctype="multipart/form-data">
+    {% if message %}
+    <div
+        style="
+            padding:15px;
+            margin-bottom:20px;
+            border-radius:8px;
+            color:white;
+            background-color:{% if status == 'success' %}#16a34a{% else %}#dc2626{% endif %};
+        "
+    >
+        {{ message }}
+    </div>
+    {% endif %}
 
-    <input type="file" name="file">
+    <form action="/upload" method="post" enctype="multipart/form-data">
 
-    <button type="submit">
+        <input type="file" name="file" required>
 
-        Upload
+        <button type="submit">
+            Upload
+        </button>
 
-    </button>
+    </form>
 
-</form>
+    <hr>
 
-<hr>
+    <h2>Uploaded Documents</h2>
 
-<h2>Uploaded Documents</h2>
-
-<ul>
-
-{% for file in files %}
-
-<li>{{ file.name }}</li>
-
-{% endfor %}
-
-</ul>
+    <ul>
+        {% for file in files %}
+            <li>{{ file.name }}</li>
+        {% endfor %}
+    </ul>
 
 </body>
 </html>

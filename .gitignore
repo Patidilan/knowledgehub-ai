@@ -55,3 +55,8 @@ data/processed/
 
 # AI Models
 models/
+
+# Test files
+test_*.py
+*_test.py
+app/services/test_*.py

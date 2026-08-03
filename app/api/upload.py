@@ -61,36 +61,6 @@ async def upload_pdf(file: UploadFile = File(...)):
     with save_path.open("wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    # Extract PDF
-    document = PDFService.extract_text(save_path)
-
-    print("=" * 60)
-    print(f"Filename : {document['filename']}")
-    print(f"Pages    : {document['total_pages']}")
-
-    if document["pages"]:
-        print("\nPreview:\n")
-        print(document["pages"][0]["text"][:500])
-        
-    chunks = PDFService.chunk_document(document)
-
-    json_file = PDFService.save_document(
-        document=document,
-        chunks=chunks
-    )
-
-    print("=" * 60)
-    print(f"Total Chunks : {len(chunks)}")
-
-    print("\nFirst Chunk Metadata:")
-    print(chunks[0])
-
-    print("\nFirst Chunk Text:")
-    print(chunks[0]["text"])
-    
-    print("=" * 60)
-    print(f"JSON Saved : {json_file}")
-
     return RedirectResponse(
         url=f"/?status=success&message={quote('Document uploaded successfully!')}",
         status_code=303
